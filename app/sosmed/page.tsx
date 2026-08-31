@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import { SOCIAL_MEDIA } from "@/lib/constants";
 import {

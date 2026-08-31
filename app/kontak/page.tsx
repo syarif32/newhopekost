@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import { kostData } from "@/data/kostData";
 import {

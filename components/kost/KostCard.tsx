@@ -40,7 +40,7 @@ export default function KostCard({ kost }: KostCardProps) {
       <div className="flex flex-1 flex-col p-5">
         <h3 className="text-lg font-semibold text-blue-900">{kost.nama}</h3>
         <p className="mt-1 flex items-start gap-1.5 text-sm text-slate-600">
-          <span aria-hidden="true">📍</span>
+          <span aria-hidden="true"></span>
           <span>{kost.alamat}</span>
         </p>
 

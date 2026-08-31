@@ -1,3 +1,7 @@
+"use client";
+import type { Metadata } from "next";
+import KostCard from "@/components/kost/KostCard";
+import { kostData } from "@/data/kostData";
 import Image from "next/image";
 import type { GaleriFasilitas } from "@/types/kost";
 import ImageGallery from "@/components/kost/ImageGallery";

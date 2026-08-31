@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import KostCard from "@/components/kost/KostCard";
 import { kostData } from "@/data/kostData";
@@ -11,10 +12,6 @@ export const metadata: Metadata = {
   },
 };
 
-/**
- * Halaman perbandingan properti (/kost). Sengaja hanya menampilkan
- * ringkasan lewat KostCard — detail lengkap ada di /kost/[slug].
- */
 export default function KostDirectoryPage() {
   return (
     <div className="bg-slate-50">

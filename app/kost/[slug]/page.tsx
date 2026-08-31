@@ -55,11 +55,6 @@ export function generateMetadata({
   };
 }
 
-/**
- * Halaman detail lengkap satu properti kost.
- * Server Component murni — seluruh interaktivitas (galeri) didelegasikan
- * ke RoomCard/FacilityGallery yang membungkus ImageGallery Client Component.
- */
 export default function KostDetailPage({ params }: KostDetailPageProps) {
   const kost = getKostBySlug(params.slug);
 
@@ -104,7 +99,9 @@ export default function KostDetailPage({ params }: KostDetailPageProps) {
       </section>
 
       {/* Sticky internal navigation, tepat di bawah hero */}
-      <DetailNav />
+      <div className="sticky top-16 z-40 w-full">
+        <DetailNav />
+      </div>
 
       {/* Deskripsi */}
       <section id="deskripsi" className="scroll-mt-32 bg-white py-14">

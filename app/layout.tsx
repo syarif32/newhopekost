@@ -47,7 +47,8 @@ export default function RootLayout({
     <html lang="id" className={`scroll-smooth ${poppins.variable}`}>
       <body className="flex min-h-screen flex-col bg-white font-poppins text-slate-800 antialiased">
         <Navbar />
-        <main className="flex-1">{children}</main>
+        {/* Tambahkan overflow-x-hidden di sini */}
+        <main className="flex-1 overflow-x-clip">{children}</main>
         <Footer />
         <FloatingWA />
       </body>

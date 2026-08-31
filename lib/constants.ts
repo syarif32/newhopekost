@@ -9,7 +9,7 @@
 
 /** Info umum situs, dipakai untuk Metadata API (title, description, OG). */
 export const SITE_CONFIG = {
-  name: "GANTI_NAMA_BRAND_KOST", // contoh: "Kost Nyaman Group"
+  name: "New Hope Kost", 
   description:
     "GANTI_DESKRIPSI_SITUS — deskripsi singkat brand kost untuk SEO & OG.",
   // Ganti dengan domain asli setelah deploy ke Vercel / custom domain.
