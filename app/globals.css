@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+/* Cegah horizontal overflow di seluruh halaman, apa pun penyebabnya
+   (gambar lebar, elemen fixed, dsb). scroll-behavior sudah diatur lewat
+   className "scroll-smooth" di <html> (app/layout.tsx). */
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
