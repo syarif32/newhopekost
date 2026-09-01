@@ -5,6 +5,7 @@ import { getAllKostSlugs, getKostBySlug } from "@/data/kostData";
 import { formatPrice, getStartingPrice } from "@/lib/utils";
 import {
   SITE_CONFIG,
+  WHATSAPP_NUMBER,
   buildWhatsAppUrl,
   getWhatsAppPropertyMessage,
 } from "@/lib/constants";
@@ -18,12 +19,10 @@ interface KostDetailPageProps {
   };
 }
 
-/** Static params untuk seluruh properti — men-generate 3 halaman statis. */
 export function generateStaticParams() {
   return getAllKostSlugs().map((slug) => ({ slug }));
 }
 
-/** Metadata dinamis per properti: nama, deskripsi, lokasi, Open Graph. */
 export function generateMetadata({
   params,
 }: KostDetailPageProps): Metadata {
@@ -65,10 +64,43 @@ export default function KostDetailPage({ params }: KostDetailPageProps) {
   const startingPrice = getStartingPrice(kost);
   const whatsappUrl = buildWhatsAppUrl(getWhatsAppPropertyMessage(kost.nama));
 
+  //  Schema.org (JSON-LD) Google Search
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Accommodation",
+    "name": kost.nama,
+    "description": kost.deskripsi,
+    "url": `${SITE_CONFIG.url}/kost/${kost.slug}`,
+    "image": [
+      kost.coverImage.startsWith("http")
+        ? kost.coverImage
+        : `${SITE_CONFIG.url}${kost.coverImage}`,
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": kost.alamat,
+      "addressCountry": "ID",
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": startingPrice,
+      "priceCurrency": "IDR",
+      "availability": "https://schema.org/InStock",
+      "url": `${SITE_CONFIG.url}/kost/${kost.slug}`,
+    },
+    "telephone": `+${WHATSAPP_NUMBER}`,
+  };
+
   return (
     <>
-      {/* Hero Properti */}
-      <section className="relative flex h-72 items-end overflow-hidden sm:h-80">
+     
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+
+      {/* Hero Properti - Ditambahkan animate-fade-in-up */}
+      <section className="relative flex h-72 items-end overflow-hidden sm:h-80 animate-fade-in-up">
         <Image
           src={kost.coverImage}
           alt={`Foto ${kost.nama}`}
@@ -84,7 +116,7 @@ export default function KostDetailPage({ params }: KostDetailPageProps) {
             {kost.nama}
           </h1>
           <p className="mt-1 flex items-center gap-1.5 text-sm text-slate-100">
-            <span aria-hidden="true">📍</span>
+            <span aria-hidden="true"></span>
             {kost.alamat}
           </p>
           <div className="mt-3 flex flex-wrap items-center gap-3">
@@ -98,13 +130,13 @@ export default function KostDetailPage({ params }: KostDetailPageProps) {
         </div>
       </section>
 
-      {/* Sticky internal navigation, tepat di bawah hero */}
-      <div className="sticky top-16 z-40 w-full">
+      {/* Sticky internal navigation, tepat di bawah hero - Ditambahkan animate-fade-in-up */}
+      <div className="sticky top-16 z-40 w-full animate-fade-in-up">
         <DetailNav />
       </div>
 
-      {/* Deskripsi */}
-      <section id="deskripsi" className="scroll-mt-32 bg-white py-14">
+      {/* Deskripsi - Ditambahkan animate-fade-in-up */}
+      <section id="deskripsi" className="scroll-mt-32 bg-white py-14 animate-fade-in-up">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-bold text-blue-900 sm:text-2xl">
             Deskripsi
@@ -132,8 +164,8 @@ export default function KostDetailPage({ params }: KostDetailPageProps) {
         </div>
       </section>
 
-      {/* Fasilitas Umum + Galeri Fasilitas */}
-      <section id="fasilitas" className="scroll-mt-32 bg-slate-50 py-14">
+      {/* Fasilitas Umum + Galeri Fasilitas - Ditambahkan animate-fade-in-up */}
+      <section id="fasilitas" className="scroll-mt-32 bg-slate-50 py-14 animate-fade-in-up">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-bold text-blue-900 sm:text-2xl">
             Fasilitas
@@ -168,8 +200,8 @@ export default function KostDetailPage({ params }: KostDetailPageProps) {
         </div>
       </section>
 
-      {/* Tipe Kamar */}
-      <section id="kamar" className="scroll-mt-32 bg-white py-14">
+      {/* Tipe Kamar - Ditambahkan animate-fade-in-up */}
+      <section id="kamar" className="scroll-mt-32 bg-white py-14 animate-fade-in-up">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-bold text-blue-900 sm:text-2xl">
             Tipe Kamar
@@ -182,8 +214,8 @@ export default function KostDetailPage({ params }: KostDetailPageProps) {
         </div>
       </section>
 
-      {/* Lokasi */}
-      <section id="lokasi" className="scroll-mt-32 bg-slate-50 py-14">
+      {/* Lokasi - Ditambahkan animate-fade-in-up */}
+      <section id="lokasi" className="scroll-mt-32 bg-slate-50 py-14 animate-fade-in-up">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-xl font-bold text-blue-900 sm:text-2xl">
             Lokasi
@@ -204,8 +236,8 @@ export default function KostDetailPage({ params }: KostDetailPageProps) {
         </div>
       </section>
 
-      {/* CTA WhatsApp */}
-      <section className="bg-blue-900 py-14">
+      {/* CTA WhatsApp - Ditambahkan animate-fade-in-up */}
+      <section className="bg-blue-900 py-14 animate-fade-in-up">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-xl font-bold text-white sm:text-2xl">
             Tertarik dengan {kost.nama}?
@@ -217,7 +249,7 @@ export default function KostDetailPage({ params }: KostDetailPageProps) {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-6 inline-flex items-center justify-center rounded-md bg-white px-6 py-3 text-sm font-semibold text-blue-900 transition-colors hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-blue-900 sm:text-base"
+            className="mt-6 inline-flex items-center justify-center rounded-md bg-white px-6 py-3 text-sm font-semibold text-blue-900 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:bg-slate-100 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-blue-900 sm:text-base"
           >
             Hubungi via WhatsApp
           </a>

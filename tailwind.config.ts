@@ -8,20 +8,27 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Palet "Modern Corporate Real Estate".
-        // Sengaja memakai token semantik di atas warna Tailwind bawaan
-        // (slate/blue) supaya konsisten dipakai di seluruh komponen.
         brand: {
-          primary: "#2563eb", // blue-600
-          primaryHover: "#1d4ed8", // blue-700
-          dark: "#1e3a8a", // blue-900
+          primary: "#2563eb", 
+          primaryHover: "#1d4ed8", 
+          dark: "#1e3a8a", 
         },
       },
       fontFamily: {
         poppins: ["var(--font-poppins)"],
       },
       maxWidth: {
-        container: "80rem", // setara max-w-7xl, dipakai via className langsung
+        container: "80rem", 
+      },
+      
+      keyframes: {
+        "fade-in-up": {
+          "0%": { opacity: "0", transform: "translateY(20px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        "fade-in-up": "fade-in-up 0.6s ease-out forwards",
       },
     },
   },

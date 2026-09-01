@@ -1,26 +1,66 @@
-/**
- * Satu sumber kebenaran untuk data bisnis yang bersifat GLOBAL
- * (bukan spesifik per-properti kost).
- *
- * GANTI SEMUA NILAI PLACEHOLDER DI BAWAH INI dengan data asli sebelum deploy.
- * Data properti kost (nama, alamat, harga, dst.) ada di data/kostData.ts,
- * bukan di sini.
- */
-
-/** Info umum situs, dipakai untuk Metadata API (title, description, OG). */
 export const SITE_CONFIG = {
-  name: "New Hope Kost", 
+  name: "New Hope Kost",
   description:
-    "GANTI_DESKRIPSI_SITUS — deskripsi singkat brand kost untuk SEO & OG.",
-  // Ganti dengan domain asli setelah deploy ke Vercel / custom domain.
-  url: "https://GANTI-DOMAIN.vercel.app",
+    "Sewa kost eksklusif, murah, dan nyaman di Kota Semarang. Fasilitas lengkap, kamar mandi dalam, WiFi cepat, dan bebas biaya tambahan.",
+  url: "https://newhopekost.com", 
+  keywords: [
+    "kost murah",
+    "sewa kost",
+    "kost eksklusif",
+    "kost Semarang",
+    "kost bebas",
+    "USM",
+    "AMNI",
+    "Semarang Timur",
+    "kost mahasiswa",
+    "New Hope Kost",
+    "info kost",
+    "kost nyaman",
+    "kost lengkap",
+    "kost fasilitas lengkap",
+    "kost strategis",
+    "kost dekat kampus",
+    "kost aman",
+    "kost bersih",
+    "kost nyaman dan murah",
+    "kost nyaman dan lengkap",
+    "kost nyaman dan strategis",
+    "kost nyaman dan aman",
+    "kost nyaman dan bersih",
+    "kost nyaman dan dekat kampus",
+    "kost nyaman dan dekat fasilitas umum",
+    "kost nyaman dan dekat transportasi",
+    "kost nyaman dan dekat pusat kota",
+    "kost nyaman dan dekat tempat makan",
+    "kost nyaman dan dekat tempat belanja",
+    "kost nyaman dan dekat tempat hiburan",
+    "kost nyaman dan dekat tempat ibadah",
+    "kost nyaman dan dekat tempat olahraga",
+    "kost nyaman dan dekat tempat wisata",
+    "kost nyaman dan dekat tempat rekreasi",
+    "kost nyaman dan dekat tempat nongkrong",
+    "kost nyaman dan dekat tempat hangout",
+    "kost nyaman dan dekat tempat kuliner",
+    "kost nyaman dan dekat tempat belanja kebutuhan sehari-hari",
+    "kost nyaman dan dekat tempat belanja fashion",
+    "kost nyaman dan dekat tempat belanja elektronik",
+    "kost nyaman dan dekat tempat belanja furniture",
+    "kost nyaman dan dekat tempat belanja peralatan rumah tangga",
+    "kost nyaman dan dekat tempat belanja perlengkapan bayi",
+    "kost nyaman dan dekat tempat belanja perlengkapan anak",
+    "kost nyaman dan dekat tempat belanja perlengkapan sekolah",
+    "kost nyaman dan dekat tempat belanja perlengkapan kantor",
+    "kost nyaman dan dekat tempat belanja perlengkapan olahraga",
+  ],
+  ogImage: "images/depan.png", 
+  locale: "id_ID",
 } as const;
 
 /**
  * Nomor WhatsApp tujuan, format internasional TANPA tanda "+" atau spasi.
  * Contoh format yang benar: "6281234567890"
  */
-export const WHATSAPP_NUMBER = "62GANTI_NOMOR_WHATSAPP";
+export const WHATSAPP_NUMBER = "62811382255";
 
 /**
  * Pesan default yang dikirim melalui tombol WhatsApp umum
@@ -50,15 +90,15 @@ export function buildWhatsAppUrl(message: string): string {
 export const SOCIAL_MEDIA = {
   instagram: {
     label: "Instagram",
-    url: "https://instagram.com/GANTI_USERNAME_INSTAGRAM",
+    url: "https://instagram.com",
   },
   tiktok: {
     label: "TikTok",
-    url: "https://tiktok.com/@GANTI_USERNAME_TIKTOK",
+    url: "https://tiktok.com",
   },
   facebook: {
     label: "Facebook",
-    url: "https://facebook.com/GANTI_USERNAME_FACEBOOK",
+    url: "https://facebook.com",
   },
 } as const;
 

@@ -9,11 +9,7 @@ interface KostCardProps {
 
 const MAX_FEATURED_FACILITIES = 4;
 
-/**
- * Property card ringkas untuk halaman /kost (mode perbandingan).
- * Sengaja TIDAK menampilkan seluruh kamar/foto/fasilitas — hanya ringkasan
- * yang cukup untuk membandingkan 3 properti, sesuai batasan halaman /kost.
- */
+
 export default function KostCard({ kost }: KostCardProps) {
   const startingPrice = getStartingPrice(kost);
   const roomTypeNames = kost.tipeKamar
@@ -25,7 +21,7 @@ export default function KostCard({ kost }: KostCardProps) {
   );
 
   return (
-    <div className="flex flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition-shadow hover:shadow-md">
+    <div className="flex flex-col overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl">
       <div className="relative aspect-[4/3] w-full">
         <Image
           src={kost.coverImage}
@@ -93,7 +89,7 @@ export default function KostCard({ kost }: KostCardProps) {
 
         <Link
           href={`/kost/${kost.slug}`}
-          className="mt-auto inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2.5 text-sm font-medium text-white transition-colors hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+          className="mt-auto inline-flex items-center justify-center rounded-md bg-blue-600 px-4 py-2.5 text-sm font-medium text-white transition-all duration-200 hover:bg-blue-700 hover:shadow active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
         >
           Lihat Detail
         </Link>

@@ -6,13 +6,13 @@ export const kostData: Kost[] = [
     nama: "New Hope Kost", 
     tipeKost: ["Wanita"],
     deskripsi:
-      "Deskripsi lengkap properti Kost Mawar. Jelaskan lokasi, keunggulan, suasana lingkungan, dan target penghuni (mis. dekat kampus/kantor, lingkungan tenang, akses mudah ke transportasi umum).",
+      "New Hope kost adalah pilihan ideal bagi para wanita yang mencari hunian nyaman dan aman di Semarang. Terletak di lokasi strategis, kost ini menawarkan fasilitas lengkap, termasuk WiFi gratis, area parkir luas, dapur bersama, balkon, area diskusi, dan sistem keamanan CCTV. Dengan tipe kamar AC dan Non-AC yang tersedia, penghuni dapat memilih sesuai kebutuhan dan anggaran mereka. Lingkungan sekitar yang tenang dan ramah membuat New Hope Kost menjadi tempat tinggal yang sempurna untuk mahasiswa dan profesional muda.",
     alamat: "Jl. Tunjung Biru III No.15, Palebon, Kec. Pedurungan, Kota Semarang, Jawa Tengah 50246.", 
     coverImage: "/images/depan.png",
     iframeMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.11413906111!2d110.45682087499715!3d-6.995836893005313!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708d00575f254b%3A0x363bea38c8a84d7c!2sNew%20Hope%20Kost!5e0!3m2!1sid!2sid!4v1788170016257!5m2!1sid!2sid",
     fasilitasUmum: [
-      "Free WiFi",
-      "Free Air",
+      "WiFi",
+      "Air",
       "Area Parkir Luas Motor & Mobil",
       "Dapur Bersama",
       "Balkon",
@@ -23,15 +23,13 @@ export const kostData: Kost[] = [
       {
         nama: "Dapur Bersama",
         foto: [
-          "/images/kost-1/fasilitas/dapur-1.webp",
-          "/images/kost-1/fasilitas/dapur-2.webp",
+          "/images/kost-1/fasilitas/dapur.png",
         ],
       },
       {
         nama: "Balkon",
         foto: [
-          "/images/kost-1/fasilitas/balkon-1.webp",
-          "/images/kost-1/fasilitas/balkon-2.webp",
+          "/images/kost-1/fasilitas/balkon.png",
         ],
       },
       {
@@ -70,10 +68,16 @@ export const kostData: Kost[] = [
 
         ],
         foto: [
-          "/images/kost-1/kamar/ac/ac-1.webp",
-          "/images/kost-1/kamar/ac/ac-2.webp",
-          "/images/kost-1/kamar/ac/ac-3.webp",
-          "/images/kost-1/kamar/ac/ac-4.webp",
+          "/images/kost-1/kamar/ac/k1.jpg",
+          "/images/kost-1/kamar/ac/k2.jpg",
+          "/images/kost-1/kamar/ac/k3.jpg",
+          "/images/kost-1/kamar/ac/k4.jpg",
+          "/images/kost-1/kamar/ac/k5.jpg",
+          "/images/kost-1/kamar/ac/k6.jpg",
+          "/images/kost-1/kamar/ac/k7.jpg",
+          "/images/kost-1/kamar/ac/k8.jpg",
+          "/images/kost-1/kamar/ac/k9.jpg",
+
         ],
       },
       {
@@ -84,9 +88,11 @@ export const kostData: Kost[] = [
           "Kamar tanpa AC dengan sirkulasi udara alami, harga lebih ekonomis.",
         fasilitasKamar: ["Kasur", "Lemari Pakaian", "Meja Belajar", "Jendela", "Kursi Belajar", "Jendela dengan Tirai"],
         foto: [
-          "/images/kost-1/kamar/non-ac/non-ac-1.webp",
-          "/images/kost-1/kamar/non-ac/non-ac-2.webp",
-          "/images/kost-1/kamar/non-ac/non-ac-3.webp",
+          "/images/kost-1/kamar/non-ac/k1.jpg",
+          "/images/kost-1/kamar/non-ac/k2.jpg",
+          "/images/kost-1/kamar/non-ac/k3.jpg",
+          "/images/kost-1/kamar/non-ac/k4.jpg",
+          
         ],
       },
     ],
@@ -97,24 +103,27 @@ export const kostData: Kost[] = [
     nama: "New Hope Kost 2", 
     tipeKost: ["Pria", "Wanita"],
     deskripsi:
-      "Deskripsi lengkap properti Kost Melati. Jelaskan lokasi, keunggulan, suasana lingkungan, dan target penghuni.",
+      "New Hope kost adalah pilihan ideal bagi para wanita yang mencari hunian nyaman dan aman di Semarang. Terletak di lokasi strategis, kost ini menawarkan fasilitas lengkap, termasuk WiFi gratis, area parkir luas, dapur bersama, balkon, area diskusi, dan sistem keamanan CCTV. Dengan tipe kamar AC dan Non-AC yang tersedia, penghuni dapat memilih sesuai kebutuhan dan anggaran mereka. Lingkungan sekitar yang tenang dan ramah membuat New Hope Kost menjadi tempat tinggal yang sempurna untuk mahasiswa dan profesional muda.",
     alamat: "Jl. Tunjung Biru III No.30, Palebon, Kec. Pedurungan, Kota Semarang, Jawa Tengah 50246", 
     coverImage: "/images/kost-2/cover.png",
     iframeMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d247.50709672952283!2d110.45958941543499!3d-6.995906620332947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708ce845867d21%3A0xe4def94b8ed021c7!2sJl.%20Tunjung%20Biru%20III%20No.30%2C%20Palebon%2C%20Kec.%20Pedurungan%2C%20Kota%20Semarang%2C%20Jawa%20Tengah%2050246!5e0!3m2!1sid!2sid!4v1788171901659!5m2!1sid!2sid",
-    fasilitasUmum: ["WiFi", "Parkir", "Teras", "Wifi", "Listrik"],
+    fasilitasUmum: ["WiFi", "Parkir", "Teras", "Air", "Listrik"],
     galeriFasilitas: [
       {
         nama: "Ruang Bersama",
         foto: [
-          "/images/kost-2/fasilitas/ruang-bersama-1.webp",
-          "/images/kost-2/fasilitas/ruang-bersama-2.webp",
+          "/images/kost-2/fasilitas/teras.jpg",
         ],
       },
       {
         nama: "Area Parkir",
         foto: [
-          "/images/kost-2/fasilitas/parkir-1.webp",
-          "/images/kost-2/fasilitas/parkir-2.webp",
+          "/images/kost-2/fasilitas/parkir1.jpg",
+        ],
+      },{
+        nama: "Area Diskusi",
+        foto: [
+          "/images/kost-2/fasilitas/diskusi.jpg",
         ],
       },
     ],
@@ -123,11 +132,26 @@ export const kostData: Kost[] = [
         nama: "Kamar Non-AC",
         harga: 600000,
         status: "Tersedia",
-        deskripsi: "GANTI_DESKRIPSI: Kamar Non-AC, saat ini penuh.",
-        fasilitasKamar: ["Kasur", "Lemari Pakaian", "Meja Belajar"],
+        deskripsi: "Kamar Non-AC dengan sirkulasi udara alami, harga lebih ekonomis. Cocok untuk mahasiswa yang ingin hemat biaya. Kamar dilengkapi dengan fasilitas dasar seperti kasur, lemari pakaian, meja belajar, dan kamar mandi dalam.",
+        fasilitasKamar: ["Kasur", "Lemari Pakaian", "Meja Belajar", "Kamar Mandi Dalam", "Jendela", "Kursi Belajar"],
         foto: [
-          "/images/kost-2/kamar/non-ac/non-ac-1.webp",
-          "/images/kost-2/kamar/non-ac/non-ac-2.webp",
+          "/images/kost-2/kamar/non-ac/kamar1.jpg",
+          "/images/kost-2/kamar/non-ac/kamar2.jpg",
+          "/images/kost-2/kamar/non-ac/kamar3.jpg",
+
+        ],
+      },
+      {
+        nama: "Kamar Gabungan",
+        harga: 2000000,
+        status: "Tersedia",
+        deskripsi: "Dua kamar digabung menjadi satu unit, cocok untuk pasangan. Lengkap dengan Ruang Tamu dan Dapur,Kamar Mandi Dalam.",
+        fasilitasKamar: ["Kasur", "Lemari Pakaian", "Meja Belajar", "Ruang Tamu", "Dapur", "Kamar Mandi Dalam", "Smart TV", "AC"],
+        foto: [
+          "/images/kost-2/kamar/ac/kamar.jpg",
+          "/images/kost-2/kamar/ac/ruangtamu.jpg",
+          "/images/kost-2/kamar/ac/dapur.jpg",
+          "/images/kost-2/kamar/ac/toilet.jpg",
         ],
       },
     ],
@@ -138,7 +162,7 @@ export const kostData: Kost[] = [
     nama: "New Hope Kost 3",
     tipeKost: ["Pria", "Wanita"],
     deskripsi:
-      "Deskripsi lengkap properti Kost Anggrek. Jelaskan lokasi, keunggulan, suasana lingkungan, dan target penghuni.",
+      "New Hope kost adalah pilihan ideal bagi para wanita yang mencari hunian nyaman dan aman di Semarang. Terletak di lokasi strategis, kost ini menawarkan fasilitas lengkap, termasuk WiFi gratis, area parkir luas, dapur bersama, balkon, area diskusi, dan sistem keamanan CCTV. Dengan tipe kamar AC dan Non-AC yang tersedia, penghuni dapat memilih sesuai kebutuhan dan anggaran mereka. Lingkungan sekitar yang tenang dan ramah membuat New Hope Kost menjadi tempat tinggal yang sempurna untuk mahasiswa dan profesional muda.",
     alamat: "Jl. Udan Riris III No.33, Tlogosari Kulon, Kec. Pedurungan, Kota Semarang, Jawa Tengah 50196", 
     coverImage: "/images/kost-3/cover.png",
     iframeMap: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.2166443843357!2d110.46253159999999!3d-6.9837406!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e708cd0077eb0a1%3A0xebcb08ecf2926951!2sJl.%20Udan%20Riris%20III%20No.33%2C%20Tlogosari%20Kulon%2C%20Kec.%20Pedurungan%2C%20Kota%20Semarang%2C%20Jawa%20Tengah%2050196!5e0!3m2!1sid!2sid!4v1788173247310!5m2!1sid!2sid",
@@ -146,9 +170,10 @@ export const kostData: Kost[] = [
       "WiFi",
       "Parkir Motor",
       "Dapur Bersama",
-      "Laundry",
+      "Balkon",
+      "Area Diskusi",
       "CCTV",
-      "Security 24 Jam",
+
     ],
     galeriFasilitas: [
       {
@@ -191,7 +216,7 @@ export const kostData: Kost[] = [
         harga: 800000,
         status: "Tersedia",
         deskripsi: "Kamar Non-AC dengan harga terjangkau.",
-        fasilitasKamar: ["Kasur", "Lemari Pakaian", "Meja Belajar", "Jendela","Free Listrik"],
+        fasilitasKamar: ["Kasur", "Lemari Pakaian", "Meja Belajar", "Jendela","Free Listrik", "Kursi Belajar"],
         foto: [
           "/images/kost-3/kamar/non-ac/non-ac-1.webp",
           "/images/kost-3/kamar/non-ac/non-ac-2.webp",
