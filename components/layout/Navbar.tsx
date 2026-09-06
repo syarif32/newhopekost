@@ -2,41 +2,50 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image"; 
 import { usePathname } from "next/navigation";
 import { NAV_LINKS, SITE_CONFIG } from "@/lib/constants";
 import { HamburgerIcon, CloseIcon } from "@/components/ui/Icons";
 
-/**
- * Navbar global dengan Active State (mendukung sub-path)
- */
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
 
-  // Fungsi untuk mengecek apakah link sedang aktif
   const checkIsActive = (href: string) => {
     if (href === "/") {
-      return pathname === "/"; // Halaman beranda harus sama persis
+      return pathname === "/";
     }
-    return pathname.startsWith(href); // Halaman lain (seperti /kost) akan aktif di sub-halamannya (seperti /kost/tipe-a)
+    return pathname.startsWith(href);
   };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-slate-200 bg-white/90 backdrop-blur-md">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          {/* Brand */}
+          
+          {/* Brand & Logo */}
           <Link
             href="/"
             onClick={() => setIsMenuOpen(false)}
-            className="rounded-md text-lg font-bold text-blue-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
+            className="group flex items-center gap-2.5 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600"
           >
-            {SITE_CONFIG.name}
+            <div className="relative h-8 w-8 overflow-hidden transition-transform duration-300 group-hover:scale-110">
+              <Image
+                src="/logo.png" 
+                alt={`Logo ${SITE_CONFIG.name}`}
+                fill
+                sizes="( max-width: 768px ) 100vw, ( max-width: 1200px ) 50vw, 33vw"
+                className="object-contain"
+              />
+            </div>
+            {/* Teks Nama Kost */}
+            <span className="text-lg font-bold text-blue-900">
+              {SITE_CONFIG.name}
+            </span>
           </Link>
 
           {/* Desktop Menu & Button Container */}
           <div className="hidden md:flex md:items-center md:gap-6">
-            {/* Desktop navigation */}
             <nav aria-label="Navigasi utama">
               <ul className="flex items-center gap-6">
                 {NAV_LINKS.map((link) => {
@@ -60,10 +69,9 @@ export default function Navbar() {
               </ul>
             </nav>
 
-            {/* Tombol Hubungi Sekarang (Desktop) */}
             <Link
               href="/kontak"
-              className="rounded-md bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2 shadow-sm"
+              className="rounded-md bg-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:bg-blue-700 hover:shadow-md active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
             >
               Hubungi Sekarang
             </Link>
@@ -114,12 +122,11 @@ export default function Navbar() {
             );
           })}
           
-          {/* Tombol Hubungi Sekarang (Mobile) */}
           <li className="pt-4 pb-2">
             <Link
               href="/kontak"
               onClick={() => setIsMenuOpen(false)}
-              className="flex w-full items-center justify-center rounded-md bg-blue-600 px-3 py-3 text-base font-semibold text-white shadow-sm transition-colors hover:bg-blue-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
+              className="flex w-full items-center justify-center rounded-md bg-blue-600 px-3 py-3 text-base font-semibold text-white shadow-sm transition-all duration-200 hover:bg-blue-700 active:scale-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 focus-visible:ring-offset-2"
             >
               Hubungi Sekarang
             </Link>

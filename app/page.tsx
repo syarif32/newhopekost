@@ -5,7 +5,7 @@ import KostCard from "@/components/kost/KostCard";
 import { kostData } from "@/data/kostData";
 
 export const metadata: Metadata = {
-  title: "Beranda",
+  title: "Beranda | New Hope Kost",
   description:
     "Bandingkan 3 lokasi kost dengan tipe kamar dan fasilitas berbeda, lalu hubungi kami langsung via WhatsApp.",
   alternates: {

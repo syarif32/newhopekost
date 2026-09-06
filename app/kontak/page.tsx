@@ -21,11 +21,6 @@ export const metadata: Metadata = {
   },
 };
 
-/**
- * Halaman /kontak. Tidak ada contact form karena situs ini tanpa backend —
- * seluruh kontak mengarah ke WhatsApp/media sosial, dan lokasi ditampilkan
- * lewat iframe Google Maps (bukan Google Maps JavaScript API).
- */
 export default function KontakPage() {
   const whatsappUrl = buildWhatsAppUrl(WHATSAPP_DEFAULT_MESSAGE);
 
