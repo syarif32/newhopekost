@@ -219,7 +219,9 @@ export const kostData: Kost[] = [
       {
         nama: "Kamar Mandi Bersama",
         foto: [
+          "/images/kost-3/fasilitas/image.png",
           "/images/kost-3/fasilitas/toilet.png",
+          "/images/kost-3/fasilitas/image.png",
         ],
       },
     ],
