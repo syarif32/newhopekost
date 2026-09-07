@@ -177,7 +177,7 @@ export const kostData: Kost[] = [
     fasilitasUmum: [
       "WiFi",
       "Parkir Motor",
-      "Dapur Bersama",
+      "Area Jemur",
       "Balkon",
       "Area Diskusi",
       "CCTV",
@@ -222,6 +222,13 @@ export const kostData: Kost[] = [
           "/images/kost-3/fasilitas/image.png",
           "/images/kost-3/fasilitas/toilet.png",
           "/images/kost-3/fasilitas/image.png",
+        ],
+      },
+      {
+        nama: "Area Jemur",
+        foto: [
+          "/images/kost-3/fasilitas/jemur.png",
+          
         ],
       },
     ],

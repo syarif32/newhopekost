@@ -9,12 +9,23 @@ interface KostCardProps {
 
 const MAX_FEATURED_FACILITIES = 4;
 
-
 export default function KostCard({ kost }: KostCardProps) {
   const startingPrice = getStartingPrice(kost);
-  const roomTypeNames = kost.tipeKamar
-    .map((kamar) => kamar.nama.replace(/^Kamar\s+/i, ""))
-    .join(" • ");
+  
+  // LOGIKA BARU: Merangkum tipe kamar menjadi "AC" atau "Non-AC"
+  const roomCategories = new Set<string>();
+  kost.tipeKamar.forEach((kamar) => {
+    const nameLower = kamar.nama.toLowerCase();
+    if (nameLower.includes("non-ac") || nameLower.includes("non ac")) {
+      roomCategories.add("Non-AC");
+    } else if (nameLower.includes("ac")) {
+      roomCategories.add("AC");
+    } else {
+      roomCategories.add(kamar.nama.replace(/^Kamar\s+/i, ""));
+    }
+  });
+  const roomTypeNames = Array.from(roomCategories).join(" • ");
+
   const featuredFacilities = kost.fasilitasUmum.slice(
     0,
     MAX_FEATURED_FACILITIES
@@ -64,7 +75,8 @@ export default function KostCard({ kost }: KostCardProps) {
             <p className="text-xs font-medium uppercase tracking-wide text-slate-500">
               Tipe Kamar
             </p>
-            <p className="mt-1 text-sm text-slate-700">{roomTypeNames}</p>
+            {/* Ditambahkan class line-clamp-2 agar teks super panjang otomatis dipotong rapi */}
+            <p className="mt-1 text-sm text-slate-700 line-clamp-2">{roomTypeNames}</p>
           </div>
         </div>
 
