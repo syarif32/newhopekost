@@ -10,24 +10,10 @@ import { getKostBySlug } from "@/data/kostData";
 import { WhatsAppIcon } from "@/components/ui/Icons";
 
 interface FloatingWAProps {
-  /**
-   * Nama properti kost. Opsional — jika tidak diberikan, komponen akan
-   * mencoba mendeteksi otomatis dari URL saat ini (lihat catatan di bawah).
-   * Tetap bisa dipakai secara eksplisit jika suatu saat diperlukan.
-   */
+  
   propertyName?: string;
 }
 
-/**
- * Floating WhatsApp button, tampil fixed di kanan bawah pada SETIAP halaman.
- * Dirender satu kali di app/layout.tsx agar tidak pernah duplikat.
- *
- * Client Component (perubahan dari Phase 2) karena butuh mengetahui path URL
- * saat ini lewat usePathname(), supaya bisa otomatis mengenali halaman
- * /kost/[slug] dan menyusun pesan WhatsApp dengan nama properti yang sesuai
- * — tanpa perlu setiap page.tsx meneruskan prop secara manual (yang akan
- * berisiko membuat dua FloatingWA render jika ditaruh di layout maupun page).
- */
 export default function FloatingWA({ propertyName }: FloatingWAProps) {
   const pathname = usePathname();
   const resolvedPropertyName = propertyName ?? getPropertyNameFromPathname(pathname);
@@ -55,10 +41,6 @@ export default function FloatingWA({ propertyName }: FloatingWAProps) {
   );
 }
 
-/**
- * Mengambil nama kost dari pathname jika berada di /kost/[slug].
- * Mengembalikan undefined untuk halaman lain (termasuk /kost tanpa slug).
- */
 function getPropertyNameFromPathname(pathname: string | null): string | undefined {
   if (!pathname) return undefined;
   const match = pathname.match(/^\/kost\/([^/]+)\/?$/);
