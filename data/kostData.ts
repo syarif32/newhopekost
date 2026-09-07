@@ -299,8 +299,8 @@ export const kostData: Kost[] = [
         deskripsi: "Kamar ber-AC dengan kamar mandi luar, harga belum termasuk token listrik.",
         fasilitasKamar: ["Kamar Mandi Luar", "AC", "Belum Termasuk Token Listrik", "Kasur", "Lemari Pakaian"],
         foto: [
-          "/images/kost-3/kamar/acklbb/k1.jpeg",
           "/images/kost-3/kamar/acklbb/k2.jpeg",
+          "/images/kost-3/kamar/acklbb/k1.jpeg",
           "/images/kost-3/kamar/acklbb/k3.jpeg",
         ],
       },
