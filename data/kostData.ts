@@ -49,6 +49,13 @@ export const kostData: Kost[] = [
           
         ],
       },
+      {
+        nama: "Kamar Mandi Dalam",
+        foto: [
+          "/images/kost-1/fasilitas/toilet.png",
+          
+        ],
+      },
     ],
     tipeKamar: [
       {
@@ -183,29 +190,30 @@ export const kostData: Kost[] = [
       {
         nama: "Teras",
         foto: [
-          "/images/kost-3/fasilitas/dapur-1.webp",
-          "/images/kost-3/fasilitas/dapur-2.webp",
+          "/images/kost-3/fasilitas/teras.jpeg",
+          
         ],
       },
       {
-        nama: "Parkir",
+        nama: "Balkon",
         foto: [
-          "/images/kost-3/fasilitas/parkir-1.webp",
-          "/images/kost-3/fasilitas/parkir-2.webp",
+          "/images/kost-3/fasilitas/balkon.jpeg",
+          "/images/kost-3/fasilitas/view.jpeg",
+          
         ],
       },
       {
         nama: "Area Diskusi",
         foto: [
-          "/images/kost-3/fasilitas/area-diskusi-1.webp",
-          "/images/kost-3/fasilitas/area-diskusi-2.webp",
+          "/images/kost-3/fasilitas/diskusi.jpeg",
+          "/images/kost-3/fasilitas/diskusi2.jpeg",
         ],
       },
       {
         nama: "Ruang Tamu Bersama",
         foto: [
-          "/images/kost-3/fasilitas/area-diskusi-1.webp",
-          "/images/kost-3/fasilitas/area-diskusi-2.webp",
+          "/images/kost-3/fasilitas/rt.jpeg",
+          
         ],
       },
       {
@@ -216,44 +224,36 @@ export const kostData: Kost[] = [
       },
     ],
     tipeKamar: [
-      {
-        nama: "Kamar AC",
-        harga: 600000,
-        status: "Tersedia",
-        deskripsi: "Kamar AC eksklusif khusus putri.",
-        fasilitasKamar: [
-          "AC",
-          "Kasur",
-          "Lemari Pakaian",
-          "Meja Belajar",
-          "Kamar Mandi Dalam",
-          "Belum Termasuk Listrik"
-        ],
-        foto: [
-          "/images/kost-3/kamar/ac/ac-1.webp",
-          "/images/kost-3/kamar/ac/ac-2.webp",
-          "/images/kost-3/kamar/ac/ac-3.webp",
-        ],
-      },
-      {
-        nama: "Kamar Non-AC",
-        harga: 800000,
-        status: "Tersedia",
-        deskripsi: "Kamar Non-AC dengan harga terjangkau.",
-        fasilitasKamar: ["Kasur", "Lemari Pakaian", "Meja Belajar", "Jendela","Free Listrik", "Kursi Belajar"],
-        foto: [
-          "/images/kost-3/kamar/non-ac/non-ac-1.webp",
-          "/images/kost-3/kamar/non-ac/non-ac-2.webp",
-        ],
-      },
-      {
-        nama: "Kamar Mandi Dalam Non-AC",
-        harga: 700000,
-        status: "Tersedia",
-        deskripsi: "Kamar Mandi Dalam Non-AC, free listrik.",
-        fasilitasKamar: ["Kamar Mandi Dalam", "Free Listrik", "Kasur", "Lemari Pakaian"],
-        foto: [],
-      },
+      // {
+      //   nama: "Kamar AC",
+      //   harga: 600000,
+      //   status: "Tersedia",
+      //   deskripsi: "Kamar AC eksklusif khusus putri.",
+      //   fasilitasKamar: [
+      //     "AC",
+      //     "Kasur",
+      //     "Lemari Pakaian",
+      //     "Meja Belajar",
+      //     "Kamar Mandi Dalam",
+      //     "Belum Termasuk Listrik"
+      //   ],
+      //   foto: [
+      //     "/images/kost-3/kamar/ac/ac-1.webp",
+      //     "/images/kost-3/kamar/ac/ac-2.webp",
+      //     "/images/kost-3/kamar/ac/ac-3.webp",
+      //   ],
+      // },
+      
+      // {
+      //   nama: "Kamar Mandi Dalam Non-AC",
+      //   harga: 700000,
+      //   status: "Tersedia",
+      //   deskripsi: "Kamar Mandi Dalam Non-AC, free listrik.",
+      //   fasilitasKamar: ["Kamar Mandi Dalam", "Free Listrik", "Kasur", "Lemari Pakaian"],
+      //   foto: [
+
+      //   ],
+      // },
       {
         nama: "Kamar Mandi Dalam AC (Bawah)",
         harga: 1300000,
@@ -261,8 +261,8 @@ export const kostData: Kost[] = [
         deskripsi: "Kamar Mandi Dalam ber-AC di lantai bawah, harga belum termasuk token listrik.",
         fasilitasKamar: ["Kamar Mandi Dalam", "AC", "Belum Termasuk Token Listrik", "Kasur", "Lemari Pakaian"],
         foto: [
-          "/images/kost-3/kamar/ackmd/ki.jpeg",
           "/images/kost-3/kamar/ackmd/k2.jpeg",
+          "/images/kost-3/kamar/ackmd/ki.jpeg",
           "/images/kost-3/kamar/ackmd/km.jpeg",
         ],
       },
@@ -272,15 +272,35 @@ export const kostData: Kost[] = [
         status: "Tersedia",
         deskripsi: "Kamar Mandi Dalam ber-AC di lantai atas, harga belum termasuk token listrik.",
         fasilitasKamar: ["Kamar Mandi Dalam", "AC", "Belum Termasuk Token Listrik", "Kasur", "Lemari Pakaian"],
-        foto: [],
+        foto: [
+          "/images/kost-3/kamar/ackmda/k2.jpeg",
+          "/images/kost-3/kamar/ackmda/k1.jpeg",
+          "/images/kost-3/kamar/ackmda/k3.jpeg",
+        ],
       },
       {
-        nama: "Kamar Mandi Luar AC",
+        nama: "Kamar Mandi Luar AC Lantai Atas",
         harga: 900000,
         status: "Tersedia",
         deskripsi: "Kamar ber-AC dengan kamar mandi luar, harga belum termasuk token listrik.",
         fasilitasKamar: ["Kamar Mandi Luar", "AC", "Belum Termasuk Token Listrik", "Kasur", "Lemari Pakaian"],
-        foto: [],
+        foto: [
+          "/images/kost-3/kamar/ackl/k1.jpeg",
+          "/images/kost-3/kamar/ackl/k2.jpeg",
+          "/images/kost-3/kamar/ackl/k4.jpeg",
+        ],
+      },
+      {
+        nama: "Kamar Mandi Luar AC Lantai Atas",
+        harga: 900000,
+        status: "Tersedia",
+        deskripsi: "Kamar ber-AC dengan kamar mandi luar, harga belum termasuk token listrik.",
+        fasilitasKamar: ["Kamar Mandi Luar", "AC", "Belum Termasuk Token Listrik", "Kasur", "Lemari Pakaian"],
+        foto: [
+          "/images/kost-3/kamar/acklbb/k1.jpeg",
+          "/images/kost-3/kamar/acklbb/k2.jpeg",
+          "/images/kost-3/kamar/acklbb/k3.jpeg",
+        ],
       },
       {
         nama: "Kamar Mandi Luar AC (Bawah)",
@@ -288,7 +308,23 @@ export const kostData: Kost[] = [
         status: "Tersedia",
         deskripsi: "Kamar ber-AC dengan kamar mandi luar di lantai bawah, harga belum termasuk token listrik.",
         fasilitasKamar: ["Kamar Mandi Luar", "AC", "Belum Termasuk Token Listrik", "Kasur", "Lemari Pakaian"],
-        foto: [],
+        foto: [
+          "/images/kost-3/kamar/acklb/k1.jpeg",
+          "/images/kost-3/kamar/acklb/k2.jpeg",
+          "/images/kost-3/kamar/acklb/k3.jpeg",
+          
+        ],
+      },
+      {
+        nama: "Non-AC Kamar Mandi Dalam",
+        harga:700000,
+        status: "Tersedia",
+        deskripsi: "Kamar Non-AC dengan harga terjangkau.",
+        fasilitasKamar: ["Kasur", "Lemari Pakaian", "Meja Belajar", "Jendela","Free Listrik", "Kursi Belajar"],
+        foto: [
+          "/images/kost-3/kamar/non-ac/k2.jpeg",
+          "/images/kost-3/kamar/non-ac/k1.jpeg",
+        ],
       },
     ],
   },
