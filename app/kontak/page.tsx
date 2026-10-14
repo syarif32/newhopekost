@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { kostData } from "@/data/kostData";
 import {
   SOCIAL_MEDIA,
@@ -12,14 +12,7 @@ import {
   FacebookIcon,
 } from "@/components/ui/Icons";
 
-export const metadata: Metadata = {
-  title: "Kontak",
-  description:
-    "Hubungi kami melalui WhatsApp atau media sosial, dan lihat lokasi ketiga kost kami di Google Maps.",
-  alternates: {
-    canonical: "/kontak",
-  },
-};
+export const metadata = pageMetadata("Kontak & Lokasi Kost di Semarang", "Hubungi New Hope Kost lewat WhatsApp untuk cek kamar dan jadwal survei. Lihat alamat serta peta kost di Palebon dan Tlogosari Kulon, Pedurungan.", "/kontak");
 
 export default function KontakPage() {
   const whatsappUrl = buildWhatsAppUrl(WHATSAPP_DEFAULT_MESSAGE);

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { SOCIAL_MEDIA } from "@/lib/constants";
 import {
   InstagramIcon,
@@ -6,14 +6,7 @@ import {
   FacebookIcon,
 } from "@/components/ui/Icons";
 
-export const metadata: Metadata = {
-  title: "Media Sosial",
-  description:
-    "Ikuti media sosial kami di Instagram, TikTok, dan Facebook untuk update terbaru seputar kost.",
-  alternates: {
-    canonical: "/sosmed",
-  },
-};
+export const metadata = pageMetadata("Media Sosial New Hope Kost", "Temukan kanal media sosial New Hope Kost untuk informasi hunian di Palebon dan Tlogosari Kulon, Pedurungan, Semarang.", "/sosmed");
 
 const SOCIAL_ITEMS = [
   {

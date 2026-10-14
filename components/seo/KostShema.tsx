@@ -1,46 +1,36 @@
-
+import type { Kost } from "@/types/kost";
 import { SITE_CONFIG, WHATSAPP_NUMBER } from "@/lib/constants";
+import { serializeJsonLd } from "@/lib/seo";
+import { formatPrice, getStartingPrice } from "@/lib/utils";
 
-interface PropertyProps {
-  name: string;
-  description: string;
-  location: string;
-  address?: string;
-  price: number | string;
-  images: string[];
-  slug: string;
-}
-
-export default function KostSchema({ property }: { property: PropertyProps }) {
-
+export default function KostSchema({ kost }: { kost: Kost }) {
+  const url = SITE_CONFIG.url + "/kost/" + kost.slug;
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "Accommodation", 
-    "name": property.name,
-    "description": property.description,
-    "url": `${SITE_CONFIG.url}/kost/${property.slug}`,
-    "image": property.images.map((img) =>
-      img.startsWith("http") ? img : `${SITE_CONFIG.url}${img}`
-    ),
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": property.address || property.location,
-      "addressCountry": "ID",
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": property.price,
-      "priceCurrency": "IDR",
-      "availability": "https://schema.org/InStock",
-      "url": `${SITE_CONFIG.url}/kost/${property.slug}`,
-    },
-    "telephone": `+${WHATSAPP_NUMBER}`,
+    "@graph": [
+      {
+        "@type": "LodgingBusiness", "@id": url + "#kost",
+        name: kost.nama, description: kost.deskripsi, url,
+        image: [new URL(kost.coverImage, SITE_CONFIG.url).href],
+        telephone: "+" + WHATSAPP_NUMBER,
+        address: {
+          "@type": "PostalAddress", streetAddress: kost.alamat,
+          addressLocality: "Semarang", addressRegion: "Jawa Tengah", addressCountry: "ID",
+        },
+        priceRange: "Mulai " + formatPrice(getStartingPrice(kost)) + " per bulan",
+        amenityFeature: kost.fasilitasUmum.map(name => ({
+          "@type": "LocationFeatureSpecification", name, value: true,
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Beranda", item: SITE_CONFIG.url },
+          { "@type": "ListItem", position: 2, name: "Daftar Kost", item: SITE_CONFIG.url + "/kost" },
+          { "@type": "ListItem", position: 3, name: kost.nama, item: url },
+        ],
+      },
+    ],
   };
-
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-    />
-  );
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />;
 }

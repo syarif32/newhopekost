@@ -1,17 +1,12 @@
-import type { Metadata } from "next";
+import { formatPrice, getStartingPrice } from "@/lib/utils";
+import { SITE_CONFIG } from "@/lib/constants";
+import { pageMetadata, serializeJsonLd } from "@/lib/seo";
 import Image from "next/image";
 import Link from "next/link";
 import KostCard from "@/components/kost/KostCard";
 import { kostData } from "@/data/kostData";
 
-export const metadata: Metadata = {
-  title: "Beranda | New Hope Kost",
-  description:
-    "Bandingkan 3 lokasi kost dengan tipe kamar dan fasilitas berbeda, lalu hubungi kami langsung via WhatsApp.",
-  alternates: {
-    canonical: "/",
-  },
-};
+export const metadata = pageMetadata("Kost di Semarang Bagian Timur | New Hope Kost", "Cari kost Semarang Timur? Kenali New Hope Kost di Palebon dan Tlogosari Kulon, Kecamatan Pedurungan. Bandingkan harga, fasilitas, dan foto kamar.", "/");
 
 const USP_ITEMS = [
   {
@@ -37,15 +32,19 @@ const USP_ITEMS = [
  */
 export default function HomePage() {
   const heroKost = kostData[0];
+  const lowestPrice = Math.min(...kostData.map(getStartingPrice));
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd({
+        "@context": "https://schema.org", "@type": "WebSite", name: SITE_CONFIG.name, url: SITE_CONFIG.url, inLanguage: "id-ID",
+      }) }} />
       {/* Hero */}
       <section className="relative flex min-h-[480px] items-center justify-center overflow-hidden sm:min-h-[560px]">
         {heroKost && (
           <Image
             src={heroKost.coverImage}
-            alt="Suasana kost"
+            alt={`${heroKost.nama} di Palebon, Pedurungan, Semarang`}
             fill
             priority
             sizes="100vw"
@@ -56,11 +55,11 @@ export default function HomePage() {
 
         <div className="relative z-10 mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
           <h1 className="text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-            Temukan Kost Nyaman di Lokasi Strategis
+            Kost Nyaman di Semarang Bagian Timur
           </h1>
           <p className="mt-4 text-base text-slate-100 sm:text-lg">
-            Bandingkan 3 pilihan lokasi kost dan temukan yang paling sesuai
-            dengan kebutuhan dan aktivitas Anda.
+            Pilihan kost di Palebon dan Tlogosari Kulon, Kecamatan Pedurungan.
+            Bandingkan kamar, fasilitas, dan harga mulai {formatPrice(lowestPrice)} per bulan.
           </p>
           <Link
             href="/kost"
@@ -113,6 +112,29 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="bg-white py-16">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-blue-900">Mencari Kost Semarang Timur?</h2>
+          <p className="mt-4 leading-relaxed text-slate-600">
+            New Hope Kost menawarkan hunian di kawasan timur Kota Semarang.
+            Ketiga lokasi kami berada di Kecamatan Pedurungan, tepatnya Palebon
+            dan Tlogosari Kulon, bukan di Kecamatan Semarang Timur.
+            Periksa alamat dan peta setiap lokasi agar sesuai dengan tujuan perjalanan Anda.
+          </p>
+          <h3 className="mt-6 text-lg font-semibold text-blue-900">Berapa harga sewa dan apa saja pilihannya?</h3>
+          <p className="mt-2 leading-relaxed text-slate-600">
+            Harga mulai {formatPrice(lowestPrice)} per bulan, sesuai tipe kamar.
+            Tersedia kost khusus wanita serta pilihan untuk pria dan wanita.
+            Fasilitas dan biaya listrik berbeda pada setiap tipe; lihat rincian kamar sebelum memesan.
+          </p>
+          <h3 className="mt-6 text-lg font-semibold text-blue-900">Bagaimana cara melihat kamar?</h3>
+          <p className="mt-2 leading-relaxed text-slate-600">
+            Pilih lokasi dari <Link href="/kost" className="text-blue-700 underline">daftar kost</Link>,
+            lalu <Link href="/kontak" className="text-blue-700 underline">hubungi pengelola</Link> untuk
+            memastikan harga, ketersediaan terbaru, dan menjadwalkan survei.
+          </p>
+        </div>
+      </section>
       {/* CTA */}
       <section className="bg-blue-900 py-16">
         <div className="mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">

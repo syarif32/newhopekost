@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import KostSchema from "@/components/seo/KostShema";
+import { pageMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { getAllKostSlugs, getKostBySlug } from "@/data/kostData";
 import { formatPrice, getStartingPrice } from "@/lib/utils";
 import {
-  SITE_CONFIG,
-  WHATSAPP_NUMBER,
   buildWhatsAppUrl,
   getWhatsAppPropertyMessage,
 } from "@/lib/constants";
@@ -28,30 +29,11 @@ export function generateMetadata({
 }: KostDetailPageProps): Metadata {
   const kost = getKostBySlug(params.slug);
 
-  if (!kost) {
-    return {
-      title: "Kost Tidak Ditemukan",
-    };
-  }
+  if (!kost) notFound();
 
-  const description = `${kost.nama} di ${kost.alamat}. ${kost.deskripsi}`.slice(
-    0,
-    160
-  );
-
-  return {
-    title: kost.nama,
-    description,
-    alternates: {
-      canonical: `/kost/${kost.slug}`,
-    },
-    openGraph: {
-      title: `${kost.nama} | ${SITE_CONFIG.name}`,
-      description,
-      images: [{ url: kost.coverImage }],
-      type: "website",
-    },
-  };
+  const description = kost.nama + " di Pedurungan, Semarang. Kost " + kost.tipeKost.join(" / ") +
+    " mulai " + formatPrice(getStartingPrice(kost)) + "/bulan. Lihat foto, fasilitas, dan lokasi; cek ketersediaan via WhatsApp.";
+  return pageMetadata(kost.nama + " - Kost Pedurungan Semarang", description, "/kost/" + kost.slug, kost.coverImage);
 }
 
 export default function KostDetailPage({ params }: KostDetailPageProps) {
@@ -64,40 +46,16 @@ export default function KostDetailPage({ params }: KostDetailPageProps) {
   const startingPrice = getStartingPrice(kost);
   const whatsappUrl = buildWhatsAppUrl(getWhatsAppPropertyMessage(kost.nama));
 
-  //  Schema.org (JSON-LD) Google Search
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Accommodation",
-    "name": kost.nama,
-    "description": kost.deskripsi,
-    "url": `${SITE_CONFIG.url}/kost/${kost.slug}`,
-    "image": [
-      kost.coverImage.startsWith("http")
-        ? kost.coverImage
-        : `${SITE_CONFIG.url}${kost.coverImage}`,
-    ],
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": kost.alamat,
-      "addressCountry": "ID",
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": startingPrice,
-      "priceCurrency": "IDR",
-      "availability": "https://schema.org/InStock",
-      "url": `${SITE_CONFIG.url}/kost/${kost.slug}`,
-    },
-    "telephone": `+${WHATSAPP_NUMBER}`,
-  };
-
   return (
     <>
-     
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <KostSchema kost={kost} />
+      <nav aria-label="Breadcrumb" className="mx-auto w-full max-w-7xl px-4 py-4 text-sm text-slate-600 sm:px-6 lg:px-8">
+        <ol className="flex flex-wrap gap-2">
+          <li><Link href="/" className="underline">Beranda</Link><span aria-hidden="true"> /</span></li>
+          <li><Link href="/kost" className="underline">Daftar Kost</Link><span aria-hidden="true"> /</span></li>
+          <li aria-current="page">{kost.nama}</li>
+        </ol>
+      </nav>
 
       {/* Hero Properti - Ditambahkan animate-fade-in-up */}
       <section className="relative flex h-72 items-end overflow-hidden sm:h-80 animate-fade-in-up">
