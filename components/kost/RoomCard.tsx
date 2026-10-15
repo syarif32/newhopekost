@@ -9,6 +9,7 @@ import ImageGallery from "@/components/kost/ImageGallery";
 
 interface RoomCardProps {
   kamar: TipeKamar;
+  whatsappUrl: string;
 }
 
 /**
@@ -16,7 +17,7 @@ interface RoomCardProps {
  * Server Component — interaksi galeri didelegasikan sepenuhnya ke
  * <ImageGallery>, yang merupakan Client Component.
  */
-export default function RoomCard({ kamar }: RoomCardProps) {
+export default function RoomCard({ kamar, whatsappUrl }: RoomCardProps) {
   const isAvailable = kamar.status === "Tersedia";
   const coverPhoto = kamar.foto[0];
 
@@ -64,7 +65,7 @@ export default function RoomCard({ kamar }: RoomCardProps) {
           ))}
         </ul>
 
-        <div className="mt-auto pt-5">
+        <div className="mt-auto space-y-3 pt-5">
           <ImageGallery
             images={kamar.foto}
             title={kamar.nama}
@@ -78,6 +79,15 @@ export default function RoomCard({ kamar }: RoomCardProps) {
               </button>
             )}
           />
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={"Pesan " + kamar.nama + " via WhatsApp"}
+            className="inline-flex w-full items-center justify-center rounded-md bg-emerald-700 px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-emerald-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700 focus-visible:ring-offset-2"
+          >
+            Pesan via WhatsApp
+          </a>
         </div>
       </div>
     </div>

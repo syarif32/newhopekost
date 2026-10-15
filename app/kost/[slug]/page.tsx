@@ -166,7 +166,25 @@ export default function KostDetailPage({ params }: KostDetailPageProps) {
           </h2>
           <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {kost.tipeKamar.map((kamar) => (
-              <RoomCard key={kamar.nama} kamar={kamar} />
+              <RoomCard
+                key={kamar.nama}
+                kamar={kamar}
+                whatsappUrl={buildWhatsAppUrl([
+                  "Halo, saya tertarik untuk memesan kamar berikut:",
+                  "",
+                  "Nama kost: " + kost.nama,
+                  "Alamat: " + kost.alamat,
+                  "Tipe kost: " + kost.tipeKost.join(" / "),
+                  "Tipe kamar: " + kamar.nama,
+                  "Harga: " + formatPrice(kamar.harga) + " / bulan",
+                  "Fasilitas kamar: " + (kamar.fasilitasKamar.join(", ") || "Belum tercantum"),
+                  "Status di website: " + kamar.status,
+                  "",
+                  kamar.status === "Tersedia"
+                    ? "Mohon konfirmasi ketersediaan dan informasi cara pemesanannya. Terima kasih."
+                    : "Mohon informasi jika kamar akan tersedia atau ada alternatif kamar lainnya. Terima kasih.",
+                ].join("\n"))}
+              />
             ))}
           </div>
         </div>
