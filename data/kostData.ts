@@ -231,6 +231,13 @@ export const kostData: Kost[] = [
           
         ],
       },
+      {
+        nama: "Tangga",
+        foto: [
+          "/images/kost-3/fasilitas/tangga.png",
+          
+        ],
+      },
     ],
     tipeKamar: [
       // {
