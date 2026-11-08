@@ -238,6 +238,13 @@ export const kostData: Kost[] = [
           
         ],
       },
+      {
+        nama: "Halaman Parkir",
+        foto: [
+          "/images/kost-3/fasilitas/parkir.png",
+          
+        ],
+      },
     ],
     tipeKamar: [
       // {
